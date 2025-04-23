@@ -1,0 +1,22 @@
+#!/bin/bash
+# Script to activate uv virtual environment (if not already active) and start LangGraph with Cloudflare tunnel
+
+set -e
+
+# Path to uv's default venv
+VENV_DIR=".venv"
+
+# Check if already in a virtual environment
+if [ -z "$VIRTUAL_ENV" ]; then
+  if [ -d "$VENV_DIR" ]; then
+    echo "Activating uv virtual environment..."
+    # shellcheck disable=SC1090
+    source "$VENV_DIR/bin/activate"
+  else
+    echo "No virtual environment found at $VENV_DIR. Please create one with 'uv venv' first."
+    exit 1
+  fi
+fi
+
+echo "Starting LangGraph with Cloudflare tunnel on port 8080..."
+uv run langgraph dev --tunnel --port 8080

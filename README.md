@@ -24,6 +24,24 @@ To run the example install also
 pip install langchain langchain-anthropic
 ```
 
+## Running Locally and Cloud Deployment
+
+To start the LangGraph development server with tunneling enabled (required for cloud integration), use:
+
+```bash
+uv run langgraph dev --tunnel --port 8080
+```
+
+This command will launch the LangGraph dev server and automatically configure a Cloudflare tunnel. The tunnel exposes your local server to the internet, allowing LangGraph Cloud to connect to your running instance for development and testing. The `--tunnel` flag handles the Cloudflare tunnel setup for you—no manual configuration is needed. The `--port 8080` flag specifies the port the server will listen on.
+
+If you want to automate this process and ensure your uv virtual environment is activated, you can use the provided `start-app` script at the project root:
+
+```bash
+./start-app
+```
+
+This script will activate your uv virtual environment (if not already active) and launch the LangGraph server with tunneling enabled.
+
 ## Example
 
 A full version of this in one file can be found [here](examples/math_example.py)
