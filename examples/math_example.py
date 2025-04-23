@@ -95,7 +95,7 @@ tools = [
 model = init_chat_model("claude-3-7-sonnet-latest", model_provider="anthropic")
 
 code_act = create_codeact(model, tools, eval)
-agent = code_act.compile(checkpointer=MemorySaver())
+agent = code_act.compile()
 
 if __name__ == "__main__":
     messages = [
