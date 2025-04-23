@@ -1,6 +1,6 @@
 {
     "dependencies": ["."],
     "graphs": {
-      "agent": "./examples/cipher_example.py:agent"
+      "agent": "./examples/math_example.py:agent"
     }
   }
